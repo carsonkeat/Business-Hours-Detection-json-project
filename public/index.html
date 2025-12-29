@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Hours Detection App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Business Hours Detection</h1>
+            <p class="subtitle">Extract and analyze business hours from any website</p>
+        </header>
+
+        <main>
+            <!-- URL Input Form -->
+            <section class="input-section">
+                <h2>Enter Business URL</h2>
+                <form id="hoursForm">
+                    <div class="form-group">
+                        <label for="url">Website URL:</label>
+                        <input 
+                            type="url" 
+                            id="url" 
+                            name="url" 
+                            placeholder="https://example-business.com"
+                            required
+                        >
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="timezone">Timezone (optional):</label>
+                            <select id="timezone" name="timezone">
+                                <option value="America/Chicago" selected>America/Chicago</option>
+                                <option value="America/New_York">America/New_York</option>
+                                <option value="America/Denver">America/Denver</option>
+                                <option value="America/Los_Angeles">America/Los_Angeles</option>
+                                <option value="America/Phoenix">America/Phoenix</option>
+                                <option value="UTC">UTC</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="country">Country (optional):</label>
+                            <input 
+                                type="text" 
+                                id="country" 
+                                name="country" 
+                                value="US"
+                                placeholder="US"
+                            >
+                        </div>
+                    </div>
+                    <button type="submit" id="submitBtn">
+                        <span class="button-text">Extract Business Hours</span>
+                        <span class="button-loader" style="display: none;">⏳ Processing...</span>
+                    </button>
+                </form>
+            </section>
+
+            <!-- Results Section -->
+            <section id="resultsSection" class="results-section" style="display: none;">
+                <h2>Extracted Hours</h2>
+                <div id="resultsContent"></div>
+                <div class="json-viewer">
+                    <h3>JSON Output</h3>
+                    <button id="copyJsonBtn" class="copy-btn">Copy JSON</button>
+                    <pre id="jsonOutput"></pre>
+                </div>
+            </section>
+
+            <!-- Error Section -->
+            <section id="errorSection" class="error-section" style="display: none;">
+                <h2>Error</h2>
+                <div id="errorContent"></div>
+            </section>
+
+            <!-- FAQ Section -->
+            <section class="faq-section">
+                <h2>Frequently Asked Questions</h2>
+                <div id="faqContent"></div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Business Hours Detection App &copy; 2024</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
+
